@@ -1,39 +1,43 @@
-"""
-Alien Navigation System
-Intentional bugs for testing the Self-Healing SRE Agent
-"""
+class AlienEngine:
+    def __init__(self):
+        pass
 
-def calculate_route(distance, speed):
-    # BUG 1: Division by zero possible
-    time_required = distance / speed
-    return time_required
+    def compute_thrust(self, payload):
+        # Check if 'engine_id' key exists in the payload dictionary
+        if 'engine_id' not in payload:
+            # Handle the case where 'engine_id' key is missing
+            print("Error: 'engine_id' key is missing from the payload dictionary.")
+            return None
+        
+        # Safely retrieve the 'engine_id' value using the get() method
+        engine_id = payload.get('engine_id')
+        
+        # Example computation (replace with actual logic)
+        thrust = engine_id * 1000  # Replace with actual thrust computation
+        
+        return thrust
 
-
-def get_alien_rank(alien):
-    # BUG 2: Missing dictionary key
-    return alien["rank"]
-
-
-def print_navigation_status(alien):
-    # BUG 3: Variable not defined
-    print(f"Navigation ready for {alien_name}")
-
+    def start_engine(self, payload):
+        # Check if 'engine_id' key exists in the payload dictionary
+        if 'engine_id' not in payload:
+            # Handle the case where 'engine_id' key is missing
+            print("Error: 'engine_id' key is missing from the payload dictionary.")
+            return None
+        
+        # Safely retrieve the 'engine_id' value using the get() method
+        engine_id = payload.get('engine_id')
+        
+        # Example engine start logic (replace with actual logic)
+        print(f"Starting engine {engine_id}...")
+        
+        return True
 
 def main():
-    alien = {
-        "name": "Zorg"
-        # BUG 4: missing comma above will cause syntax error
-        "power": 900
-    }
-
-    route_time = calculate_route(100, 0)  # BUG 5: speed = 0
-    rank = get_alien_rank(alien)
-
-    print_navigation_status(alien)
-
-    print("Route time:", route_time)
-    print("Rank:", rank)
-
+    engine = AlienEngine()
+    payload = {'fuel_level': 100, 'engine_id': 123}
+    thrust = engine.compute_thrust(payload)
+    print(f"Computed thrust: {thrust}")
+    engine.start_engine(payload)
 
 if __name__ == "__main__":
     main()
