@@ -1,39 +1,77 @@
-"""
-Alien Navigation System
-Intentional bugs for testing the Self-Healing SRE Agent
-"""
+import logging
 
-def calculate_route(distance, speed):
-    # BUG 1: Division by zero possible
-    time_required = distance / speed
-    return time_required
+# Initialize logger
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
-#
-def get_alien_rank(alien):
-    # BUG 2: Missing dictionary key
-    return alien["rank"]
+def process_payload(payload):
+    """
+    Process the payload dictionary.
+    
+    Args:
+        payload (dict): The payload dictionary containing the engine_id and other data.
+    
+    Returns:
+        dict: The processed payload dictionary.
+    """
+    # Check if payload is a dictionary
+    if not isinstance(payload, dict):
+        logger.error("Payload is not a dictionary")
+        return None
+    
+    # Check if 'engine_id' key is present in the payload dictionary
+    if 'engine_id' not in payload:
+        logger.error("Missing 'engine_id' key in payload")
+        return None
+    
+    # Get the 'engine_id' value from the payload dictionary using .get() for defensive programming
+    engine_id = payload.get('engine_id')
+    
+    # Process the payload dictionary
+    # Add your processing logic here
+    processed_payload = {'engine_id': engine_id}
+    
+    return processed_payload
 
-
-def print_navigation_status(alien):
-    # BUG 3: Variable not defined
-    print(f"Navigation ready for {alien_name}")
-
+def get_api_data(api_key):
+    """
+    Get API data using the provided API key.
+    
+    Args:
+        api_key (str): The API key used to authenticate the request.
+    
+    Returns:
+        dict: The API data dictionary.
+    """
+    # Check if api_key is not empty
+    if not api_key:
+        logger.error("Missing 'api_key' parameter")
+        return None
+    
+    # Get API data using the provided API key
+    # Add your API data retrieval logic here
+    api_data = {'api_key': api_key, 'data': 'Sample API data'}
+    
+    return api_data
 
 def main():
-    alien = {
-        "name": "Zorg"
-        # BUG 4: missing comma above will cause syntax error
-        "power": 900
-    }
-
-    route_time = calculate_route(100, 0)  # BUG 5: speed = 0
-    rank = get_alien_rank(alien)
-
-    print_navigation_status(alien)
-
-    print("Route time:", route_time)
-    print("Rank:", rank)
-
+    # Sample payload dictionary
+    payload = {'engine_id': '12345'}
+    
+    # Process the payload dictionary
+    processed_payload = process_payload(payload)
+    
+    # Log the processed payload dictionary
+    logger.info(processed_payload)
+    
+    # Sample API key
+    api_key = 'sample_api_key'
+    
+    # Get API data using the provided API key
+    api_data = get_api_data(api_key)
+    
+    # Log the API data dictionary
+    logger.info(api_data)
 
 if __name__ == "__main__":
     main()
