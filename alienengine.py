@@ -8,7 +8,7 @@ def calculate_route(distance, speed):
     time_required = distance / speed
     return time_required
 
-
+#
 def get_alien_rank(alien):
     # BUG 2: Missing dictionary key
     return alien["rank"]
