@@ -1,39 +1,27 @@
-"""
-Alien Navigation System
-Intentional bugs for testing the Self-Healing SRE Agent
-"""
+def compute_thrust(payload):
+    # Add input validation to ensure the 'engine_id' key is present in the payload
+    if 'engine_id' not in payload:
+        raise ValueError("Missing 'engine_id' key in payload")
 
-def calculate_route(distance, speed):
-    # BUG 1: Division by zero possible
-    time_required = distance / speed
-    return time_required
-
-
-def get_alien_rank(alien):
-    # BUG 2: Missing dictionary key
-    return alien["rank"]
-
-
-def print_navigation_status(alien):
-    # BUG 3: Variable not defined
-    print(f"Navigation ready for {alien_name}")
-
+    # Use the .get() method to safely access the 'engine_id' key
+    engine_id = payload.get('engine_id')
+    
+    # Rest of the function remains the same
+    thrust = 0
+    if engine_id == 'main':
+        thrust = 1000
+    elif engine_id == 'auxiliary':
+        thrust = 500
+    return thrust
 
 def main():
-    alien = {
-        "name": "Zorg"
-        # BUG 4: missing comma above will cause syntax error
-        "power": 900
-    }
-
-    route_time = calculate_route(100, 0)  # BUG 5: speed = 0
-    rank = get_alien_rank(alien)
-
-    print_navigation_status(alien)
-
-    print("Route time:", route_time)
-    print("Rank:", rank)
-
+    # Example usage
+    payload = {'engine_id': 'main'}
+    try:
+        thrust = compute_thrust(payload)
+        print(f"Thrust: {thrust}")
+    except ValueError as e:
+        print(f"Error: {e}")
 
 if __name__ == "__main__":
     main()
