@@ -7,6 +7,7 @@ class AlienEngine:
         ]
 #hi
     #jacsiweubciwbviwbvi
+##hdgfgfgfuhef
     def calculate_total_power(self):
         total_power = 0
         for alien in self.aliens:
