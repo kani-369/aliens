@@ -1,28 +1,39 @@
-def compute_thrust(payload):
-    # Check if the required 'engine_id' key exists in the payload dictionary
-    if "engine_id" in payload:
-        engine_id = payload["engine_id"]
-    else:
-        # Raise a custom error with a more informative message
-        raise ValueError("Missing required 'engine_id' key in payload")
+"""
+Alien Navigation System
+Intentional bugs for testing the Self-Healing SRE Agent
+"""
 
-    # Rest of the function remains the same
-    # For demonstration purposes, assume the rest of the function is as follows:
-    thrust = 0
-    if engine_id == "main_engine":
-        thrust = 1000
-    elif engine_id == "auxiliary_engine":
-        thrust = 500
-    return thrust
+def calculate_route(distance, speed):
+    # BUG 1: Division by zero possible
+    time_required = distance / speed
+    return time_required
+
+
+def get_alien_rank(alien):
+    # BUG 2: Missing dictionary key
+    return alien["rank"]
+
+
+def print_navigation_status(alien):
+    # BUG 3: Variable not defined
+    print(f"Navigation ready for {alien_name}")
+
 
 def main():
-    # Example usage:
-    payload = {"engine_id": "main_engine"}
-    try:
-        thrust = compute_thrust(payload)
-        print(f"Thrust: {thrust}")
-    except ValueError as e:
-        print(f"Error: {e}")
+    alien = {
+        "name": "Zorg"
+        # BUG 4: missing comma above will cause syntax error
+        "power": 900
+    }
+
+    route_time = calculate_route(100, 0)  # BUG 5: speed = 0
+    rank = get_alien_rank(alien)
+
+    print_navigation_status(alien)
+
+    print("Route time:", route_time)
+    print("Rank:", rank)
+
 
 if __name__ == "__main__":
     main()
