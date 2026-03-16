@@ -1,38 +1,28 @@
 """
-Alien Navigation System
-Intentional bugs for testing the Self-Healing SRE Agent
+Alien Inventory System
+Intentional bug for testing the Self-Healing SRE Agent
 """
 
-def calculate_route(distance, speed):
-    # BUG 1: Division by zero possible
-    time_required = distance / speed
-    return time_required
+def calculate_total_energy(items):
+    total = 0
 
-#
-def get_alien_rank(alien):
-    # BUG 2: Missing dictionary key
-    return alien["rank"]
+    for item in items:
+        # BUG: assumes every item has an "energy" key
+        total += item["energy"]
 
-
-def print_navigation_status(alien):
-    # BUG 3: Variable not defined
-    print(f"Navigation ready for {alien_name}")
+    return total
 
 
 def main():
-    alien = {
-        "name": "Zorg"
-        # BUG 4: missing comma above will cause syntax error
-        "power": 900
-    }
+    inventory = [
+        {"name": "Plasma Core", "energy": 50},
+        {"name": "Dark Matter Cell"},   # BUG: missing "energy"
+        {"name": "Quantum Battery", "energy": 120}
+    ]
 
-    route_time = calculate_route(100, 0)  # BUG 5: speed = 0
-    rank = get_alien_rank(alien)
+    total_energy = calculate_total_energy(inventory)
 
-    print_navigation_status(alien)
-
-    print("Route time:", route_time)
-    print("Rank:", rank)
+    print("Total energy:", total_energy)
 
 
 if __name__ == "__main__":
