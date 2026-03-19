@@ -1,11 +1,17 @@
 sandwich_orders = [
-    'pastrami', 'veggie', 'grilled cheese', 'pastrami',
-    'turkey', 'roast beef', 'pastrami']
+    "pastrami",
+    "veggie",
+    "grilled cheese",
+    "pastrami",
+    "turkey",
+    "roast beef",
+    "pastrami",
+]
 finished_sandwiches = []
 
 print("I'm sorry, we're all out of pastrami today.")
-while 'pastrami' in sandwich_orders:
-    sandwich_orders.remove('pastrami')
+while "pastrami" in sandwich_orders:
+    sandwich_orders.remove("pastrami")
 
 print("\n")
 while sandwich_orders:

@@ -15,11 +15,11 @@ response_dict = r.json()
 print(f"Complete results: {not response_dict['incomplete_results']}")
 
 # Process repository information.
-repo_dicts = response_dict['items']
+repo_dicts = response_dict["items"]
 repo_names, stars = [], []
 for repo_dict in repo_dicts:
-    repo_names.append(repo_dict['name'])
-    stars.append(repo_dict['stargazers_count'])
+    repo_names.append(repo_dict["name"])
+    stars.append(repo_dict["stargazers_count"])
 
 # Make visualization.
 fig = px.bar(x=repo_names, y=stars)

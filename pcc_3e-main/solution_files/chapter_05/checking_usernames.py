@@ -1,5 +1,5 @@
-current_users = ['eric', 'willie', 'admin', 'erin', 'Ever']
-new_users = ['sarah', 'Willie', 'PHIL', 'ever', 'Iona']
+current_users = ["eric", "willie", "admin", "erin", "Ever"]
+new_users = ["sarah", "Willie", "PHIL", "ever", "Iona"]
 
 current_users_lower = [user.lower() for user in current_users]
 

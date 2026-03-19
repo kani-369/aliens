@@ -1,5 +1,5 @@
-motorcycles = ['honda', 'yamaha', 'suzuki']
+motorcycles = ["honda", "yamaha", "suzuki"]
 print(motorcycles)
 
-motorcycles.append('ducati')
+motorcycles.append("ducati")
 print(motorcycles)

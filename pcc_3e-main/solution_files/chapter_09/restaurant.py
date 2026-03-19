@@ -16,7 +16,8 @@ class Restaurant:
         msg = f"{self.name} is open. Come on in!"
         print(f"\n{msg}")
 
-restaurant = Restaurant('the mean queen', 'pizza')
+
+restaurant = Restaurant("the mean queen", "pizza")
 print(restaurant.name)
 print(restaurant.cuisine_type)
 

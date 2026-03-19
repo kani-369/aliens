@@ -20,10 +20,11 @@ class User:
         """Display a personalized greeting to the user."""
         print(f"\nWelcome back, {self.username}!")
 
-eric = User('eric', 'matthes', 'e_matthes', 'e_matthes@example.com', 'alaska')
+
+eric = User("eric", "matthes", "e_matthes", "e_matthes@example.com", "alaska")
 eric.describe_user()
 eric.greet_user()
 
-willie = User('willie', 'burger', 'willieburger', 'wb@example.com', 'alaska')
+willie = User("willie", "burger", "willieburger", "wb@example.com", "alaska")
 willie.describe_user()
 willie.greet_user()

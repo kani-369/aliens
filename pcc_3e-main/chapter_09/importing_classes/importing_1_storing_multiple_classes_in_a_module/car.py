@@ -1,5 +1,6 @@
 """A set of classes used to represent gas and electric cars."""
 
+
 class Car:
     """A simple attempt to represent a car."""
 
@@ -53,6 +54,7 @@ class Battery:
             range = 225
 
         print(f"This car can go about {range} miles on a full charge.")
+
 
 class ElectricCar(Car):
     """Models aspects of a car, specific to electric vehicles."""

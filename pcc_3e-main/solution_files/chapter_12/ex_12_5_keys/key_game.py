@@ -15,7 +15,8 @@ class KeyGame:
         self.settings = Settings()
 
         self.screen = pygame.display.set_mode(
-            (self.settings.screen_width, self.settings.screen_height))
+            (self.settings.screen_width, self.settings.screen_height)
+        )
         pygame.display.set_caption("Key Game")
 
     def run_game(self):
@@ -24,7 +25,7 @@ class KeyGame:
             self._check_events()
             self._update_screen()
             self.clock.tick(60)
-    
+
     def _check_events(self):
         """Respond to keypresses and mouse events."""
         for event in pygame.event.get():
@@ -48,7 +49,7 @@ class KeyGame:
         pygame.display.flip()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # Make a game instance, and run the game.
     kg = KeyGame()
     kg.run_game()

@@ -1,5 +1,6 @@
 from random import randint
 
+
 class Die:
     """Represent a die, which can be rolled."""
 
@@ -10,6 +11,7 @@ class Die:
     def roll_die(self):
         """Return a number between 1 and the number of sides."""
         return randint(1, self.sides)
+
 
 # Make a 6-sided die, and show the results of 10 rolls.
 d6 = Die()

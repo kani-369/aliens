@@ -5,16 +5,19 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('meal_plans', '0001_initial'),
+        ("meal_plans", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='mealitem',
-            name='meal',
-            field=models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, to='meal_plans.meal'),
+            model_name="mealitem",
+            name="meal",
+            field=models.ForeignKey(
+                default=1,
+                on_delete=django.db.models.deletion.CASCADE,
+                to="meal_plans.meal",
+            ),
             preserve_default=False,
         ),
     ]

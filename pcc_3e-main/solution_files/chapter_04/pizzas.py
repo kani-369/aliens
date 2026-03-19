@@ -1,4 +1,4 @@
-favorite_pizzas = ['pepperoni', 'hawaiian', 'veggie']
+favorite_pizzas = ["pepperoni", "hawaiian", "veggie"]
 
 # Print the names of all the pizzas.
 for pizza in favorite_pizzas:

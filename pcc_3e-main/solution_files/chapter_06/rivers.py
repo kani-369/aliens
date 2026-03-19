@@ -1,10 +1,10 @@
 rivers = {
-    'nile': 'egypt',
-    'mississippi': 'united states',
-    'fraser': 'canada',
-    'kuskokwim': 'alaska',
-    'yangtze': 'china',
-    }
+    "nile": "egypt",
+    "mississippi": "united states",
+    "fraser": "canada",
+    "kuskokwim": "alaska",
+    "yangtze": "china",
+}
 
 for river, country in rivers.items():
     print(f"The {river.title()} flows through {country.title()}.")

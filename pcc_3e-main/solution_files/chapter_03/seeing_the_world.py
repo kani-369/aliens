@@ -1,4 +1,4 @@
-locations = ['himalaya', 'andes', 'tierra del fuego', 'labrador', 'guam']
+locations = ["himalaya", "andes", "tierra del fuego", "labrador", "guam"]
 
 print("Original order:")
 print(locations)

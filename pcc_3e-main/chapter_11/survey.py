@@ -13,7 +13,7 @@ class AnonymousSurvey:
     def store_response(self, new_response):
         """Store a single response to the survey."""
         self.responses.append(new_response)
-        
+
     def show_results(self):
         """Show all the responses that have been given."""
         print("Survey results:")

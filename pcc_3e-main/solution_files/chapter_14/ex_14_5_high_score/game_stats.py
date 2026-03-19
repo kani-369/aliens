@@ -1,9 +1,10 @@
 import json
 from pathlib import Path
 
+
 class GameStats:
     """Track statistics for Alien Invasion."""
-    
+
     def __init__(self, ai_game):
         """Initialize statistics."""
         self.settings = ai_game.settings
@@ -14,7 +15,7 @@ class GameStats:
 
     def get_saved_high_score(self):
         """Gets high score from file, if it exists."""
-        path = Path('high_score.json')
+        path = Path("high_score.json")
         try:
             contents = path.read_text()
             high_score = json.loads(contents)

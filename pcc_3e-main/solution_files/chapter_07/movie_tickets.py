@@ -3,7 +3,7 @@ prompt += "\nEnter 'quit' when you are finished. "
 
 while True:
     age = input(prompt)
-    if age == 'quit':
+    if age == "quit":
         break
     age = int(age)
 

@@ -2,7 +2,7 @@ from pathlib import Path
 import json
 
 
-path = Path('username.json')
+path = Path("username.json")
 if path.exists():
     contents = path.read_text()
     username = json.loads(contents)

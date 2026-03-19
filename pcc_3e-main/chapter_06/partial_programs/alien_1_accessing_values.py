@@ -1,2 +1,2 @@
-alien_0 = {'color': 'green'}
-print(alien_0['color'])
+alien_0 = {"color": "green"}
+print(alien_0["color"])

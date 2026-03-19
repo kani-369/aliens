@@ -37,5 +37,5 @@ class ElectricCar(Car):
         super().__init__(make, model, year)
 
 
-my_leaf = ElectricCar('nissan', 'leaf', 2024)
+my_leaf = ElectricCar("nissan", "leaf", 2024)
 print(my_leaf.get_descriptive_name())

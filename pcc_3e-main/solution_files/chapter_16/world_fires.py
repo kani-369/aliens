@@ -4,7 +4,7 @@ import csv
 import plotly.express as px
 
 
-path = Path('eq_data/world_fires_1_day.csv')
+path = Path("eq_data/world_fires_1_day.csv")
 lines = path.read_text().splitlines()
 
 reader = csv.reader(lines)
@@ -27,11 +27,15 @@ for row in reader:
 
 # Plot brightnesses on a world map.
 title = "Global wildfire activity"
-fig = px.scatter_geo(lat=lats, lon=lons, size=brights, title=title,
-        color=brights,
-        color_continuous_scale='YlOrRd',
-        labels={'color':'Brightness'},
-        projection='natural earth',
-    )
+fig = px.scatter_geo(
+    lat=lats,
+    lon=lons,
+    size=brights,
+    title=title,
+    color=brights,
+    color_continuous_scale="YlOrRd",
+    labels={"color": "Brightness"},
+    projection="natural earth",
+)
 
 fig.show()

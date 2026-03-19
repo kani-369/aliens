@@ -1,5 +1,5 @@
 user_0 = {
-    'username': 'efermi',
-    'first': 'enrico',
-    'last': 'fermi',
-    }
+    "username": "efermi",
+    "first": "enrico",
+    "last": "fermi",
+}

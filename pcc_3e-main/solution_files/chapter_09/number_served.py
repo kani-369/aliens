@@ -26,7 +26,7 @@ class Restaurant:
         self.number_served += additional_served
 
 
-restaurant = Restaurant('the mean queen', 'pizza')
+restaurant = Restaurant("the mean queen", "pizza")
 restaurant.describe_restaurant()
 
 print(f"\nNumber served: {restaurant.number_served}")

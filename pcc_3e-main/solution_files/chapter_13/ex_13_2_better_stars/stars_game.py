@@ -17,7 +17,8 @@ class StarsGame:
         self.settings = Settings()
 
         self.screen = pygame.display.set_mode(
-                (self.settings.screen_width, self.settings.screen_height))
+            (self.settings.screen_width, self.settings.screen_height)
+        )
         pygame.display.set_caption("Stars")
 
         self.stars = pygame.sprite.Group()
@@ -50,7 +51,7 @@ class StarsGame:
         star = Star(self)
         star_width, star_height = star.rect.size
 
-        current_x, current_y = 2*star_width, 2*star_height
+        current_x, current_y = 2 * star_width, 2 * star_height
         while current_y < (self.settings.screen_height - 3 * star_height):
             while current_x < (self.settings.screen_width - 2 * star_width):
                 self._create_star(current_x, current_y)
@@ -59,7 +60,6 @@ class StarsGame:
             # Finished a row; reset x value, and increment y value.
             current_x = 2 * star_width
             current_y += 2 * star_height
-
 
     def _create_star(self, x_position, y_position):
         """Create a star and place it in the grid."""
@@ -73,7 +73,7 @@ class StarsGame:
     def _get_star_offset(self):
         """Return a random adjustment to a star's position."""
         offset_size = 15
-        return randint(-1*offset_size, offset_size)
+        return randint(-1 * offset_size, offset_size)
 
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""
@@ -83,7 +83,7 @@ class StarsGame:
         pygame.display.flip()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # Make a game instance, and run the game.
     sg = StarsGame()
     sg.run_game()

@@ -17,7 +17,8 @@ class StarsGame:
         self.settings = Settings()
 
         self.screen = pygame.display.set_mode(
-                (self.settings.screen_width, self.settings.screen_height))
+            (self.settings.screen_width, self.settings.screen_height)
+        )
         pygame.display.set_caption("Stars")
 
         self.stars = pygame.sprite.Group()
@@ -73,7 +74,7 @@ class StarsGame:
         pygame.display.flip()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # Make a game instance, and run the game.
     sg = StarsGame()
     sg.run_game()
