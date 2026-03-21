@@ -1,5 +1,5 @@
 """
-Alien Inventory System
+Alien Inventory Systems
 Intentional bug for testing the Self-Healing SRE Agentuhi
 """
 
@@ -8,8 +8,7 @@ def calculate_total_energy(items):
 
     for item in items:
         # BUG: assumes every item has an "energy" key
-        # FIX: Use .get() with a default value to handle missing 'energy' keys gracefully.
-        total += item.get("energy", 0)
+        total += item["energy"]
 
     return total
 
