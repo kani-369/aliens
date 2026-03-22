@@ -1,0 +1,156 @@
+{
+  "repo": "kani-369/aliens",
+  "workflow": "Run Alien Engine",
+  "branch": "master",
+  "preflight_confidence": {
+    "score": 0.737,
+    "level": "medium",
+    "components": {
+      "error_clarity": 0.95,
+      "fix_readiness": 0.6,
+      "historical_success": 0.5
+    }
+  },
+  "confidence_policy": {
+    "enabled": true,
+    "level": "medium",
+    "mapped_action": {
+      "apply_fixes": true,
+      "force_create_pr": true,
+      "warning": "Medium confidence: creating PR with caution warning."
+    },
+    "effective_apply_fixes": true,
+    "effective_create_pr": true
+  },
+  "historical_reuse": {
+    "matches": [
+      {
+        "similarity": 1.0,
+        "failure_reason": "Runtime failure: KeyError: 'energy'",
+        "selected_fix_summary": "The `KeyError: 'energy'` occurs because the `calculate_total_energy` function attempts to access the 'energy' key for every item in the inventory, but the 'Dark Matter Cell' item is missing this key. The fix involves using `item.get('energy', 0)` to safely retrieve the energy value, defaulting to 0 if the key is not present, thus preventing the `KeyError`.",
+        "successful_actions": [
+          "llm_code_patch"
+        ]
+      }
+    ],
+    "successful_summaries": [
+      "The `KeyError: 'energy'` occurs because the `calculate_total_energy` function attempts to access the 'energy' key for every item in the inventory, but the 'Dark Matter Cell' item is missing this key. The fix involves using `item.get('energy', 0)` to safely retrieve the energy value, defaulting to 0 if the key is not present, thus preventing the `KeyError`."
+    ],
+    "preferred_action_ids": [
+      "llm_code_patch"
+    ]
+  },
+  "repo_access": {
+    "repo": "kani-369/aliens",
+    "repo_dir": "C:\\Users\\DELL\\Desktop\\try\\aliens",
+    "clone_performed": false,
+    "clone_if_missing": true,
+    "clone_depth": 1,
+    "clone_filter_blobless": true,
+    "use_temp_repo": false
+  },
+  "execution_policy": {
+    "allow_untrusted_commands": false,
+    "allowed_command_prefix": [
+      "python alienengine.py"
+    ],
+    "sandbox_runner": "host",
+    "sandbox_image": ""
+  },
+  "command_audit": {
+    "executed": [],
+    "blocked": []
+  },
+  "diagnosis": {
+    "run_id": 23382294593,
+    "conclusion": "failure",
+    "html_url": "https://github.com/kani-369/aliens/actions/runs/23382294593",
+    "workflow_name": "Run Alien Engine",
+    "failed_steps": [
+      "run-engine: Run alien engine"
+    ],
+    "category": "test",
+    "reason": "Runtime failure: KeyError: 'energy'",
+    "log_excerpt": "75Z Version: 20260309.50.1\n2026-03-21T15:01:33.2826198Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260309.50/images/ubuntu/Ubuntu2404-Readme.md\n2026-03-21T15:01:33.2827631Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260309.50\n2026-03-21T15:01:33.2828624Z ##[endgroup]\n2026-03-21T15:01:33.2829808Z ##[group]GITHUB_TOKEN Permissions\n2026-03-21T15:01:33.2831936Z Contents: read\n2026-03-21T15:01:33.2832504Z Metadata: read\n2026-03-21T15:01:33.2832964Z Packages: read\n2026-03-21T15:01:33.2833523Z ##[endgroup]\n2026-03-21T15:01:33.2835554Z Secret source: Actions\n2026-03-21T15:01:33.2836635Z Prepare workflow directory\n2026-03-21T15:01:33.3156005Z Prepare all required actions\n2026-03-21T15:01:33.3193454Z Getting action download info\n2026-03-21T15:01:33.5954449Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)\n2026-03-21T15:01:33.7344206Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)\n2026-03-21T15:01:33.9225365Z Complete job name: run-engine\n2026-03-21T15:01:33.9908176Z ##[group]Run actions/checkout@v4\n2026-03-21T15:01:33.9908986Z with:\n2026-03-21T15:01:33.9909668Z   repository: kani-369/aliens\n2026-03-21T15:01:33.9910285Z   token: ***\n2026-03-21T15:01:33.9910654Z   ssh-strict: true\n2026-03-21T15:01:33.9911018Z   ssh-user: git\n2026-03-21T15:01:33.9911407Z   persist-credentials: true\n2026-03-21T15:01:33.9911824Z   clean: true\n2026-03-21T15:01:33.9912201Z   sparse-checkout-cone-mode: true\n2026-03-21T15:01:33.9912653Z   fetch-depth: 1\n2026-03-21T15:01:33.9913016Z   fetch-tags: false\n2026-03-21T15:01:33.9913408Z   show-progress: true\n2026-03-21T15:01:33.9913791Z   lfs: false\n2026-03-21T15:01:33.9914135Z   submodules: false\n2026-03-21T15:01:33.9914519Z   set-safe-directory: true\n2026-03-21T15:01:33.9915214Z ##[endgroup]\n2026-03-21T15:01:34.0979891Z Syncing repository: kani-369/aliens\n2026-03-21T15:01:34.0981609Z ##[group]Getting Git version info\n2026-03-21T15:01:34.0982246Z Working directory is '/home/runner/work/aliens/aliens'\n2026-03-21T15:01:34.0983198Z [command]/usr/bin/git version\n2026-03-21T15:01:34.1091046Z git version 2.53.0\n2026-03-21T15:01:34.1117386Z ##[endgroup]\n2026-03-21T15:01:34.1133139Z Temporarily overriding HOME='/home/runner/work/_temp/db99fc16-1957-4ab1-b379-51dce0438bf5' before making global git config changes\n2026-03-21T15:01:34.1135509Z Adding repository directory to the temporary git global config as a safe directory\n2026-03-21T15:01:34.1147726Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/aliens/aliens\n2026-03-21T15:01:34.1187942Z Deleting the contents of '/home/runner/work/aliens/aliens'\n2026-03-21T15:01:34.1192027Z ##[group]Initializing the repository\n2026-03-21T15:01:34.1196598Z [command]/usr/bin/git init /home/runner/work/aliens/aliens\n2026-03-21T15:01:34.1353716Z hint: Using 'master' as the name for the initial branch. This default branch name\n2026-03-21T15:01:34.1354879Z hint: will change to \"main\" in Git 3.0. To configure the initial branch name\n2026-03-21T15:01:34.1355801Z hint: to use in all of your new repositories, which will suppress this warning,\n2026-03-21T15:01:34.1356495Z hint: call:\n2026-03-21T15:01:34.1357158Z hint:\n2026-03-21T15:01:34.1357975Z hint: \tgit config --global init.defaultBranch <name>\n2026-03-21T15:01:34.1358906Z hint:\n2026-03-21T15:01:34.1359824Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and\n2026-03-21T15:01:34.1361073Z hint: 'development'. The just-created branch can be renamed via this command:\n2026-03-21T15:01:34.1362305Z hint:\n2026-03-21T15:01:34.1363003Z hint: \tgit branch -m <name>\n2026-03-21T15:01:34.1363766Z hint:\n2026-03-21T15:01:34.1364784Z hint: Disable this message with \"git config set advice.defaultBranchName false\"\n2026-03-21T15:01:34.1366463Z Initialized empty Git repository in /home/runner/work/aliens/aliens/.git/\n2026-03-21T15:01:34.1374876Z [command]/usr/bin/git remote add origin https://github.com/kani-369/aliens\n2026-03-21T15:01:34.1414410Z ##[endgroup]\n2026-03-21T15:01:34.1415621Z ##[group]Disabling automatic garbage collection\n2026-03-21T15:01:34.1419891Z [command]/usr/bin/git config --local gc.auto 0\n2026-03-21T15:01:34.1452064Z ##[endgroup]\n2026-03-21T15:01:34.1453220Z ##[group]Setting up auth\n2026-03-21T15:01:34.1460324Z [command]/usr/bin/git config --local --name-only --get-regexp core\\.sshCommand\n2026-03-21T15:01:34.1494723Z [command]/usr/bin/git submodule foreach --recursive sh -c \"git config --local --name-only --get-regexp 'core\\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\"\n2026-03-21T15:01:34.1878382Z [command]/usr/bin/git config --local --name-only --get-regexp http\\.https\\:\\/\\/github\\.com\\/\\.extraheader\n2026-03-21T15:01:34.1911621Z [command]/usr/bin/git submodule foreach --recursive sh -c \"git config --local --name-only --get-regexp 'http\\.https\\:\\/\\/github\\.com\\/\\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\"\n2026-03-21T15:01:34.2143830Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\\.gitdir:\n2026-03-21T15:01:34.2175955Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url\n2026-03-21T15:01:34.2415812Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***\n2026-03-21T15:01:34.2450543Z ##[endgroup]\n2026-03-21T15:01:34.2451390Z ##[group]Fetching the repository\n2026-03-21T15:01:34.2459657Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +0e3c1a7f2ed790ad5540b928ce8e4d58ab5b2aad:refs/remotes/origin/master\n2026-03-21T15:01:35.3436566Z From https://github.com/kani-369/aliens\n2026-03-21T15:01:35.3438380Z  * [new ref]         0e3c1a7f2ed790ad5540b928ce8e4d58ab5b2aad -> origin/master\n2026-03-21T15:01:35.3473529Z ##[endgroup]\n2026-03-21T15:01:35.3474820Z ##[group]Determining the checkout info\n2026-03-21T15:01:35.3478300Z ##[endgroup]\n2026-03-21T15:01:35.3482878Z [command]/usr/bin/git sparse-checkout disable\n2026-03-21T15:01:35.3539562Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig\n2026-03-21T15:01:35.3571635Z ##[group]Checking out the ref\n2026-03-21T15:01:35.3573888Z [command]/usr/bin/git checkout --progress --force -B master refs/remotes/origin/master\n2026-03-21T15:01:35.6595766Z Reset branch 'master'\n2026-03-21T15:01:35.6597220Z branch 'master' set up to track 'origin/master'.\n2026-03-21T15:01:35.6629386Z ##[endgroup]\n2026-03-21T15:01:35.6668247Z [command]/usr/bin/git log -1 --format=%H\n2026-03-21T15:01:35.6690831Z 0e3c1a7f2ed790ad5540b928ce8e4d58ab5b2aad\n2026-03-21T15:01:35.6973156Z ##[group]Run actions/setup-python@v5\n2026-03-21T15:01:35.6973882Z with:\n2026-03-21T15:01:35.6974289Z   python-version: 3.10\n2026-03-21T15:01:35.6974826Z   check-latest: false\n2026-03-21T15:01:35.6975608Z   token: ***\n2026-03-21T15:01:35.6976071Z   update-environment: true\n2026-03-21T15:01:35.6976673Z   allow-prereleases: false\n2026-03-21T15:01:35.6977259Z   freethreaded: false\n2026-03-21T15:01:35.6977755Z ##[endgroup]\n2026-03-21T15:01:35.8647975Z ##[group]Installed versions\n2026-03-21T15:01:35.8753276Z Successfully set up CPython (3.10.20)\n2026-03-21T15:01:35.8755510Z ##[endgroup]\n2026-03-21T15:01:35.8889227Z ##[group]Run python alienengine.py\n2026-03-21T15:01:35.8890040Z \u001b[36;1mpython alienengine.py\u001b[0m\n2026-03-21T15:01:35.8965166Z shell: /usr/bin/bash -e {0}\n2026-03-21T15:01:35.8965773Z env:\n2026-03-21T15:01:35.8966390Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.20/x64\n2026-03-21T15:01:35.8967583Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.20/x64/lib/pkgconfig\n2026-03-21T15:01:35.8968786Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.20/x64\n2026-03-21T15:01:35.8970047Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.20/x64\n2026-03-21T15:01:35.8971124Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.20/x64\n2026-03-21T15:01:35.8972196Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.20/x64/lib\n2026-03-21T15:01:35.8973045Z ##[endgroup]\n2026-03-21T15:01:36.1601003Z Traceback (most recent call last):\n2026-03-21T15:01:36.1611294Z   File \"/home/runner/work/aliens/aliens/alienengine.py\", line 29, in <module>\n2026-03-21T15:01:36.1613303Z     main()\n2026-03-21T15:01:36.1614771Z   File \"/home/runner/work/aliens/aliens/alienengine.py\", line 23, in main\n2026-03-21T15:01:36.1616681Z     total_energy = calculate_total_energy(inventory)\n2026-03-21T15:01:36.1619272Z   File \"/home/runner/work/aliens/aliens/alienengine.py\", line 11, in calculate_total_energy\n2026-03-21T15:01:36.1621434Z     total += item[\"energy\"]\n2026-03-21T15:01:36.1622314Z KeyError: 'energy'\n2026-03-21T15:01:36.1643615Z ##[error]Process completed with exit code 1.\n2026-03-21T15:01:36.1820123Z Post job cleanup.\n2026-03-21T15:01:36.2758318Z [command]/usr/bin/git version\n2026-03-21T15:01:36.2794231Z git version 2.53.0\n2026-03-21T15:01:36.2836718Z Temporarily overriding HOME='/home/runner/work/_temp/595a7440-cad7-4f54-8362-6925e18ae03b' before making global git config changes\n2026-03-21T15:01:36.2838886Z Adding repository directory to the temporary git global config as a safe directory\n2026-03-21T15:01:36.2849424Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/aliens/aliens\n2026-03-21T15:01:36.2884177Z [command]/usr/bin/git config --local --name-only --get-regexp core\\.sshCommand\n2026-03-21T15:01:36.2918155Z [command]/usr/bin/git submodule foreach --recursive sh -c \"git config --local --name-only --get-regexp 'core\\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\"\n2026-03-21T15:01:36.3187532Z [command]/usr/bin/git config --local --name-only --get-regexp http\\.https\\:\\/\\/github\\.com\\/\\.extraheader\n2026-03-21T15:01:36.3213151Z http.https://github.com/.extraheader\n2026-03-21T15:01:36.3226441Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader\n2026-03-21T15:01:36.3261610Z [command]/usr/bin/git submodule foreach --recursive sh -c \"git config --local --name-only --get-regexp 'http\\.https\\:\\/\\/github\\.com\\/\\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\"\n2026-03-21T15:01:36.3500426Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\\.gitdir:\n2026-03-21T15:01:36.3533557Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url\n2026-03-21T15:01:36.3885759Z Cleaning up orphan processes\n2026-03-21T15:01:36.4188892Z ##[warning]Node.js 20 actions are deprecated. The following actions are running on Node.js 20 and may not work as expected: actions/checkout@v4, actions/setup-python@v5. Actions will be forced to run with Node.js 24 by default starting June 2nd, 2026. Please check if updated versions of these actions are available that support Node.js 24. To opt into Node.js 24 now, set the FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true environment variable on the runner or in your workflow file. Once Node.js 24 becomes the default, you can temporarily opt out by setting ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/\n\n\n# run-engine/system.txt\n2026-03-21T15:01:31.5340000Z Job is waiting for a hosted runner to come online.\n2026-03-21T15:01:31.5340000Z Job is about to start running on the hosted runner: GitHub Actions 1000000059\n2026-03-21T15:01:31.5280000Z Evaluating run-engine.if\n2026-03-21T15:01:31.5280000Z Evaluating: success()\n2026-03-21T15:01:31.5280000Z Result: true\n2026-03-21T15:01:31.5280000Z Requested labels: ubuntu-latest\n2026-03-21T15:01:31.5280000Z Job defined at: kani-369/aliens/.github/workflows/run-alien.yml@refs/heads/master\n2026-03-21T15:01:31.5280000Z Waiting for a runner to pick up this job..."
+  },
+  "root_cause": "Code accesses 'energy' directly on input items, but some items do not include that field.",
+  "strategies": [
+    {
+      "title": "Guard missing 'energy' access",
+      "suggested_fix": "Replace direct dict indexing with safe access (`item.get('energy', 0)`) or conditional checks.",
+      "risk": "low",
+      "tradeoffs": "Prevents crashes; may hide unexpected data quality issues unless logging is added."
+    },
+    {
+      "title": "Normalize inventory schema before compute",
+      "suggested_fix": "Create a preprocessing step that ensures each item has 'energy' with a default value.",
+      "risk": "medium",
+      "tradeoffs": "Keeps compute code clean; introduces another transformation stage to maintain."
+    },
+    {
+      "title": "Fail fast with validation",
+      "suggested_fix": "Validate all required keys (including 'energy') and raise a clear error with item context.",
+      "risk": "medium",
+      "tradeoffs": "Improves observability; CI still fails until producers guarantee schema compliance."
+    }
+  ],
+  "actions": [],
+  "executions": [
+    {
+      "action_id": "llm_code_patch",
+      "approved": true,
+      "success": false,
+      "commands": [
+        "python alienengine.py"
+      ],
+      "outputs": [
+        "Historical pattern reuse candidates found: 1",
+        "Attempt 1/2",
+        "LLM query failed: litellm.BadGatewayError: BadGatewayError: OpenAIException - Error code: 502 - {'detail': {'error': {'type': 'cli_execution_error', 'message': 'Gemini CLI returned a non-zero exit code.', 'details': {'returncode': 1, 'stderr': 'The command line is too long.', 'stdout': ''}}}}",
+        "Attempt 2/2",
+        "LLM query failed: litellm.BadGatewayError: BadGatewayError: OpenAIException - Error code: 502 - {'detail': {'error': {'type': 'cli_execution_error', 'message': 'Gemini CLI returned a non-zero exit code.', 'details': {'returncode': 1, 'stderr': 'The command line is too long.', 'stdout': ''}}}}"
+      ],
+      "executed_commands": [],
+      "blocked_commands": []
+    }
+  ],
+  "selected_fix_summary": "No successful patch was applied.",
+  "pull_request": {
+    "attempted": true,
+    "created": false,
+    "branch_name": "",
+    "base_branch": "",
+    "url": "",
+    "message": "No approved successful actions were executed; skipping PR creation.",
+    "number": null,
+    "reviewers_requested": [],
+    "review_status": "not_requested",
+    "review_message": ""
+  },
+  "confidence": {
+    "score": 0.435,
+    "level": "low",
+    "components": {
+      "error_clarity": 0.95,
+      "fix_pattern_match": 0.25,
+      "test_pass_rate": 0.0,
+      "historical_success": 0.5
+    }
+  },
+  "recurring_intelligence": {
+    "top_failure_clusters": [
+      {
+        "category": "test",
+        "normalized_reason": "runtime failure: keyerror: <value>",
+        "count": 2,
+        "sample_reasons": [
+          "Runtime failure: KeyError: 'energy'"
+        ],
+        "systemic_recommendation": "Add schema validation/defaults at data boundaries and add regression tests for missing fields."
+      }
+    ],
+    "systemic_recommendations": [
+      "Add schema validation/defaults at data boundaries and add regression tests for missing fields."
+    ]
+  }
+}
