@@ -8,7 +8,8 @@ def calculate_total_energy(items):
 
     for item in items:
         # BUG: assumes every item has an "energy" key
-        total += item["energy"]
+        # FIX: Use .get() with a default value to handle missing 'energy' keys gracefully.
+        total += item.get("energy", 0)
 
     return total
 
