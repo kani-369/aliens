@@ -1,5 +1,6 @@
 """A class representing a restaurant."""
 
+
 class Restaurant:
     """A class representing a restaurant."""
 

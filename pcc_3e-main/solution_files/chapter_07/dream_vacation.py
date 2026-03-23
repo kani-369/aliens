@@ -15,7 +15,7 @@ while True:
 
     # Ask if there's anyone else responding.
     repeat = input(continue_prompt)
-    if repeat != 'yes':
+    if repeat != "yes":
         break
 
 # Show results of the survey.

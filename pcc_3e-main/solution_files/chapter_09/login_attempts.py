@@ -29,7 +29,8 @@ class User:
         """Reset login_attempts to 0."""
         self.login_attempts = 0
 
-eric = User('eric', 'matthes', 'e_matthes', 'e_matthes@example.com', 'alaska')
+
+eric = User("eric", "matthes", "e_matthes", "e_matthes@example.com", "alaska")
 eric.describe_user()
 eric.greet_user()
 

@@ -1,5 +1,6 @@
 """A class for modeling users."""
 
+
 class User:
     """Represent a simple user profile."""
 

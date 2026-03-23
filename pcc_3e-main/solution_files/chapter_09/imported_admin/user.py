@@ -1,5 +1,6 @@
 """A collection of classes for modeling users."""
 
+
 class User:
     """Represent a simple user profile."""
 
@@ -38,7 +39,7 @@ class Admin(User):
     def __init__(self, first_name, last_name, username, email, location):
         """Initialize the admin."""
         super().__init__(first_name, last_name, username, email, location)
-        
+
         # Initialize an empty set of privileges.
         self.privileges = Privileges()
 

@@ -3,12 +3,14 @@ Alien Inventory Systems
 Intentional bug for testing the Self-Healing SRE Agentuhi
 """
 
+
 def calculate_total_energy(items):
     total = 0
 
     for item in items:
         # BUG: assumes every item has an "energy" key
-        total += item["energy"]
+        # FIX: Use .get() with a default value to handle missing 'energy' keys
+        total += item.get("energy", 0)
 
     return total
 
@@ -16,8 +18,8 @@ def calculate_total_energy(items):
 def main():
     inventory = [
         {"name": "Plasma Core", "energy": 50},
-        {"name": "Dark Matter Cell"},   # BUG: missing "energy"
-        {"name": "Quantum Battery", "energy": 120}
+        {"name": "Dark Matter Cell"},  # BUG: missing "energy"
+        {"name": "Quantum Battery", "energy": 120},
     ]
 
     total_energy = calculate_total_energy(inventory)

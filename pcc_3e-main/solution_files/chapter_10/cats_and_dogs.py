@@ -1,6 +1,6 @@
 from pathlib import Path
 
-filenames = ['cats.txt', 'dogs.txt']
+filenames = ["cats.txt", "dogs.txt"]
 
 for filename in filenames:
     print(f"\nReading file: {filename}")

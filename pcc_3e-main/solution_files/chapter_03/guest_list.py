@@ -1,4 +1,4 @@
-guests = ['guido van rossum', 'jack turner', 'lynn hill']
+guests = ["guido van rossum", "jack turner", "lynn hill"]
 
 name = guests[0].title()
 print(f"{name}, please come to dinner.")

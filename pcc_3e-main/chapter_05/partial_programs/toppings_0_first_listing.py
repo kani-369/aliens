@@ -1,4 +1,4 @@
-requested_topping = 'mushrooms'
+requested_topping = "mushrooms"
 
-if requested_topping != 'anchovies':
+if requested_topping != "anchovies":
     print("Hold the anchovies!")

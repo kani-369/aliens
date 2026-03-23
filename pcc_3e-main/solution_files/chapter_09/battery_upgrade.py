@@ -28,6 +28,7 @@ class Car:
         """Add the given amount to the odometer reading."""
         self.odometer_reading += miles
 
+
 class Battery:
     """A simple attempt to model a battery for an electric car."""
 
@@ -55,8 +56,8 @@ class Battery:
             print("Upgraded the battery to 65 kWh.")
         else:
             print("The battery is already upgraded.")
-    
-        
+
+
 class ElectricCar(Car):
     """Represent aspects of a car, specific to electric vehicles."""
 
@@ -70,7 +71,7 @@ class ElectricCar(Car):
 
 
 print("Make an electric car, and check the range:")
-my_leaf = ElectricCar('nissan', 'leaf', 2024)
+my_leaf = ElectricCar("nissan", "leaf", 2024)
 my_leaf.battery.get_range()
 
 print("\nUpgrade the battery, and check the range again:")

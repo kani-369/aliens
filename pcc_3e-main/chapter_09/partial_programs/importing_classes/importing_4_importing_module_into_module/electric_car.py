@@ -23,6 +23,7 @@ class Battery:
 
         print(f"This car can go about {range} miles on a full charge.")
 
+
 class ElectricCar(Car):
     """Models aspects of a car, specific to electric vehicles."""
 

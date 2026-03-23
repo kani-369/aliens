@@ -11,6 +11,7 @@ def get_stored_user_info(path):
     else:
         return None
 
+
 def get_new_user_info(path):
     """Get information from a new user."""
     username = input("What is your name? ")
@@ -18,18 +19,19 @@ def get_new_user_info(path):
     animal = input("What's your favorite animal? ")
 
     user_dict = {
-        'username': username,
-        'game': game,
-        'animal': animal,
+        "username": username,
+        "game": game,
+        "animal": animal,
     }
 
     contents = json.dumps(user_dict)
     path.write_text(contents)
     return user_dict
 
+
 def greet_user():
     """Greet the user by name, and state what we know about them."""
-    path = Path('user_info.json')
+    path = Path("user_info.json")
     user_dict = get_stored_user_info(path)
     if user_dict:
         print(f"Welcome back, {user_dict['username']}!")
@@ -39,5 +41,6 @@ def greet_user():
         user_dict = get_new_user_info(path)
         msg = f"We'll remember you when you return, {user_dict['username']}!"
         print(msg)
+
 
 greet_user()

@@ -5,6 +5,7 @@ import pygame
 from settings import Settings
 from raindrop import Raindrop
 
+
 class RaindropsGame:
     """Overall class to manage game assets and behavior."""
 
@@ -15,7 +16,8 @@ class RaindropsGame:
         self.settings = Settings()
 
         self.screen = pygame.display.set_mode(
-                (self.settings.screen_width, self.settings.screen_height))
+            (self.settings.screen_width, self.settings.screen_height)
+        )
         pygame.display.set_caption("Raindrops")
 
         self.raindrops = pygame.sprite.Group()
@@ -74,7 +76,7 @@ class RaindropsGame:
         """Create a new row of raindrops after a row disappears."""
         # Note: There are a number of ways to do this. This approach just
         #   copies the code from _create_drops() that's used for a single
-        #   row of raindrops. This is simpler than trying to make 
+        #   row of raindrops. This is simpler than trying to make
         #   _create_drops() handle the full screen of raindrops, or a single
         #   new row of raindrops.
         drop = Raindrop(self)
@@ -117,7 +119,7 @@ class RaindropsGame:
         pygame.display.flip()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # Make a game instance, and run the game.
     rd_game = RaindropsGame()
     rd_game.run_game()

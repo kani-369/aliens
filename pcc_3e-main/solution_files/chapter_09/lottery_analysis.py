@@ -1,5 +1,6 @@
 from random import choice
 
+
 def get_winning_ticket(possibilities):
     """Return a winning ticket from a set of possibilities."""
     winning_ticket = []
@@ -16,8 +17,9 @@ def get_winning_ticket(possibilities):
 
     return winning_ticket
 
+
 def check_ticket(played_ticket, winning_ticket):
-    # Check all elements in the played ticket. If any are not in the 
+    # Check all elements in the played ticket. If any are not in the
     #   winning ticket, return False.
     for element in played_ticket:
         if element not in winning_ticket:
@@ -25,6 +27,7 @@ def check_ticket(played_ticket, winning_ticket):
 
     # We must have a winning ticket!
     return True
+
 
 def make_random_ticket(possibilities):
     """Return a random ticket from a set of possibilities."""
@@ -41,7 +44,7 @@ def make_random_ticket(possibilities):
     return ticket
 
 
-possibilities = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'a', 'b', 'c', 'd', 'e']
+possibilities = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "a", "b", "c", "d", "e"]
 winning_ticket = get_winning_ticket(possibilities)
 
 plays = 0

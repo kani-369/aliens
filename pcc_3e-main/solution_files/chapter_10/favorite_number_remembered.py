@@ -1,7 +1,7 @@
 from pathlib import Path
 import json
 
-path = Path('favorite_number.json')
+path = Path("favorite_number.json")
 try:
     contents = path.read_text()
 except FileNotFoundError:

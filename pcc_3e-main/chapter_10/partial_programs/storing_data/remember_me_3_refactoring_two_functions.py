@@ -11,9 +11,10 @@ def get_stored_username(path):
     else:
         return None
 
+
 def greet_user():
     """Greet the user by name."""
-    path = Path('username.json')
+    path = Path("username.json")
     username = get_stored_username(path)
     if username:
         print(f"Welcome back, {username}!")
@@ -22,5 +23,6 @@ def greet_user():
         contents = json.dumps(username)
         path.write_text(contents)
         print(f"We'll remember you when you come back, {username}!")
+
 
 greet_user()

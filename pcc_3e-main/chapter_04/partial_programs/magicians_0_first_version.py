@@ -1,3 +1,3 @@
-magicians = ['alice', 'david', 'carolina']
+magicians = ["alice", "david", "carolina"]
 for magician in magicians:
     print(magician)
