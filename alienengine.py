@@ -7,7 +7,7 @@ def calculate_total_energy(items):
     total = 0
 
     for item in items:
-        # BUG: assumes every item has an "energy" key
+        # Use .get() with a default of 0 to handle items missing the 'energy' key
         total += item.get("energy", 0)
 
     return total
@@ -16,7 +16,7 @@ def calculate_total_energy(items):
 def main():
     inventory = [
         {"name": "Plasma Core", "energy": 50},
-        {"name": "Dark Matter Cell"},   # BUG: missing "energy"
+        {"name": "Dark Matter Cell"},   # Missing "energy" key
         {"name": "Quantum Battery", "energy": 120}
     ]
 
