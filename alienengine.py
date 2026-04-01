@@ -1,6 +1,6 @@
 """
 Alien Inventory Systems
-Intentional bug for testing the Self-Healing SRE Agentuhi
+Intentional bug for testing the Self-Healing SRE Agent
 """
 
 def calculate_total_energy(items):
