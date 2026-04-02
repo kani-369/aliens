@@ -3,12 +3,12 @@
   "workflow": "Run Alien Engine",
   "branch": "master",
   "preflight_confidence": {
-    "score": 0.78,
+    "score": 0.714,
     "level": "medium",
     "components": {
       "error_clarity": 0.95,
       "fix_readiness": 0.6,
-      "historical_success": 0.714
+      "historical_success": 0.385
     }
   },
   "confidence_policy": {
@@ -94,11 +94,7 @@
     "sandbox_image": ""
   },
   "command_audit": {
-    "executed": [
-      "python alienengine.py",
-      "python alienengine.py",
-      "python alienengine.py"
-    ],
+    "executed": [],
     "blocked": []
   },
   "diagnosis": {
@@ -139,44 +135,22 @@
     {
       "action_id": "llm_code_patch",
       "approved": true,
-      "success": true,
+      "success": false,
       "commands": [
         "python alienengine.py"
       ],
       "outputs": [
         "Historical pattern reuse candidates found: 5",
         "Attempt 1/2",
-        "Plan summary: The `KeyError: 'energy'` occurs because the `calculate_total_energy` function attempts to access the 'energy' key for every item in the inventory, but the 'Dark Matter Cell' item is missing this key. The fix involves using `item.get('energy', 0)` to safely retrieve the energy value, defaulting to 0 if the key is not present, thus preventing the `KeyError` (or a `TypeError` if `item.get('energy')` returned `None`).",
-        "Applied edit to alienengine.py",
-        "Applied files: alienengine.py",
-        "Patch diff:\n- unavailable",
-        "$ python alienengine.py\n[exit=0]\nTotal energy: 170",
-        "Restored alienengine.py after failed verification",
+        "LLM query failed: litellm.InternalServerError: InternalServerError: OpenAIException - Connection error.",
         "Attempt 2/2",
-        "Plan summary: The `KeyError: 'energy'` occurs because the `calculate_total_energy` function attempts to access the 'energy' key for every item in the inventory. Although the code uses `item.get(\"energy\")`, it lacks a default value. When an item like 'Dark Matter Cell' is encountered, `item.get(\"energy\")` returns `None`, which would lead to a `TypeError` when added to `total`. The log excerpt, however, indicates `item[\"energy\"]` was used, resulting in a `KeyError`. To robustly handle items missing the 'energy' key, and aligning with the explicit comment in the code and historical successful fixes, the `get()` method should be provided with a default value of `0`.",
-        "Applied edit to alienengine.py",
-        "Applied files: alienengine.py",
-        "Patch diff:\n- unavailable",
-        "$ python alienengine.py\n[exit=0]\nTotal energy: 170",
-        "Restored alienengine.py after failed verification",
-        "Attempt ranking (best first):",
-        "  - #1 attempt 1 verify_ok=True passed=0 failed=0 change_size=2 hist_sim=1.0",
-        "  - #2 attempt 2 verify_ok=True passed=0 failed=0 change_size=2 hist_sim=1.0",
-        "Re-applying best-ranked attempt...",
-        "Applied edit to alienengine.py",
-        "$ python alienengine.py\n[exit=0]\nTotal energy: 170",
-        "Selected best attempt: #1 (attempt 1)",
-        "Best patch files: alienengine.py"
+        "LLM query failed: litellm.InternalServerError: InternalServerError: OpenAIException - Connection error."
       ],
-      "executed_commands": [
-        "python alienengine.py",
-        "python alienengine.py",
-        "python alienengine.py"
-      ],
+      "executed_commands": [],
       "blocked_commands": []
     }
   ],
-  "selected_fix_summary": "The `KeyError: 'energy'` occurs because the `calculate_total_energy` function attempts to access the 'energy' key for every item in the inventory, but the 'Dark Matter Cell' item is missing this key. The fix involves using `item.get('energy', 0)` to safely retrieve the energy value, defaulting to 0 if the key is not present, thus preventing the `KeyError` (or a `TypeError` if `item.get('energy')` returned `None`).",
+  "selected_fix_summary": "No successful patch was applied.",
   "pull_request": {
     "attempted": true,
     "created": false,
@@ -190,13 +164,13 @@
     "review_message": ""
   },
   "confidence": {
-    "score": 0.867,
-    "level": "high",
+    "score": 0.418,
+    "level": "low",
     "components": {
       "error_clarity": 0.95,
-      "fix_pattern_match": 0.75,
-      "test_pass_rate": 1.0,
-      "historical_success": 0.714
+      "fix_pattern_match": 0.25,
+      "test_pass_rate": 0.0,
+      "historical_success": 0.385
     }
   },
   "recurring_intelligence": {
@@ -204,7 +178,7 @@
       {
         "category": "test",
         "normalized_reason": "runtime failure: keyerror: <value>",
-        "count": 7,
+        "count": 13,
         "sample_reasons": [
           "Runtime failure: KeyError: 'energy'"
         ],
