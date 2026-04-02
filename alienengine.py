@@ -7,14 +7,8 @@ def calculate_total_energy(items):
     total = 0
 
     for item in items:
-        try:
-            # Attempt to get energy, if not present, KeyError will be caught
-            total += item["energy"]
-        except KeyError:
-            # If 'energy' key is missing, default its contribution to 0.
-            # This explicitly handles the KeyError reported in the logs.
-            total += 0
-            # Optional: print(f"Warning: Item '{item.get('name', 'Unknown')}' is missing 'energy' key. Assuming 0 energy.")
+        # Use .get() with a default of 0 to handle items missing the 'energy' key
+        total += item.get("energy", 0)
 
     return total
 
